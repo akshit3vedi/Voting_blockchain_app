@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      language="javascript"
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+    ></script>
+    <script
+      language="javascript"
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Voter Page</title>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar  bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand text-light">Chainblock Team</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item px-1">
+              <a class="nav-link active text-light" aria-current="page">Home</a>
+            </li>
+                <li class="nav-item px-1">
+              <a class="nav-link active text-light" href="./People.html"
+                >People</a
+              >
+            </li>
+            <!-- <li class="nav-item px-1">
+              <a class="nav-link text-muted" href="./Nft.html">NFT</a>
+            </li> -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle text-muted"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                My Profile
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" id="adminAddress">Action</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" id="adminBalance"
+                    >Something else here</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- alert section  -->
+    <div id="txStatus"></div>
+
+    <div class="votingSection" id="section">
+      <div class="listSection">
+        <div class="form-check mt-3">
+          <input
+            class="form-check-input mt-3"
+            type="radio"
+            name="flexRadioDefault"
+            value="0"
+            id="akshit"
+          />
+          <img
+            
+            alt="Akshit Photo"
+            class="rounded-circle logo border border-ligh"
+          />
+          <label class="form-check-label ms-3" for="akshit">Akshit Trivedi</label>
+        </div>
+        <div class="form-check mt-3">
+          <input
+            class="form-check-input mt-3"
+            type="radio"
+            name="flexRadioDefault"
+            value="1"
+            id="meet"
+          />
+          <img
+            alt="Meet Photo"
+            class="rounded-circle logo border border-ligh"
+          />
+          <label class="form-check-label ms-3" for="meet"> Meet Jhaveri </label>
+        </div>
+        <div class="form-check mt-3">
+          <input
+            class="form-check-input mt-3"
+            type="radio"
+            name="flexRadioDefault"
+            value="2"
+            id="dharmil"
+          />
+          <img
+            alt="Dharmil Photo"
+            class="rounded-circle logo border border-ligh"
+          />
+          <label class="form-check-label ms-3" for="dharmil"> Dharmil Dhameliya </label>
+        </div>
+		  
+		
+		
+        <div class="form-check mt-3">
+          <input
+            class="form-check-input mt-3"
+            type="radio"
+            name="flexRadioDefault"
+            value="3"
+            id="vrund"
+          />
+          <img
+            alt="Vrund Photo"
+            class="rounded-circle logo border border-ligh"
+          />
+          <label class="form-check-label ms-3" for="vrund"> Vrund Thakkar </label>
+        </div>
+		  
+	
+		
+      <!-- <button
+        type="submit"
+        id="giveRight"
+        class="my-3 me-5 btn btn-outline-success"
+      >
+        Allow me to vote!
+      </button> -->
+
+      <!-- <input type="number" id="index" /> -->
+       <br />
+       <br />
+      <button type="submit" id="vote" class="me-5 btn btn-outline-secondary">
+        Vote
+      </button>
+
+      <div id="summary" class="me-5 btn btn-outline-secondary">
+        Summary
+      </div>
+      <div class="summary"></div>
+
+      <!-- or section -->
+   
+
+     
+    </div>
+
+    <!-- result Section -->
+    <div class="resultSection" style="display: none">
+      <div class="confetti">
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+      </div>
+      <div class="content"></div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Summary</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body container">
+            <div class="row mt-2 mb-4 text-center">
+              <div class="col"><b>Candidates</b></div>
+              <div class="col"><b>Votes</b></div>
+            </div>
+            <div class="row mt-3 text-center">
+              <div class="col">
+                <img
+                  alt="Akshit Photo"
+                  class="rounded-circle border border-ligh"
+                  width="30px"
+                  height="30px"
+                />
+                <label class="form-check-label ms-3" for="akshit">Akshit Trivedi </label>
+              </div>
+              <div class="col votes1"></div>
+            </div>
+
+            <div class="row mt-3 text-center">
+              <div class="col">
+                <img
+                  alt="Meet Photo"
+                  class="rounded-circle border border-ligh"
+                  width="30px"
+                  height="30px"
+                />
+                <label class="form-check-label ms-3" for="meet"> Meet Jhaveri </label>
+              </div>
+              <div class="col votes2"></div>
+            </div>
+
+            <div class="row mt-3 text-center">
+              <div class="col">
+                <img
+                  alt="Dharmil photo"
+                  class="rounded-circle border border-ligh"
+                  width="30px"
+                  height="30px"
+                />
+                <label class="form-check-label ms-3" for="dharmil"> Dharmil Dhameliya </label>
+              </div>
+              <div class="col votes3"></div>
+			  </div>
+        <div class="row mt-3 text-center">
+          <div class="col">
+            <img
+              alt="Vrund photo"
+              class="rounded-circle border border-ligh"
+              width="30px"
+              height="30px"
+            />
+            <label class="form-check-label ms-3" for="vrund"> Vrund Thakkar </label>
+          </div>
+          <div class="col votes4"></div>
+    </div>
+
+            
+			  
+			  
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- script -->
+    <script src="./index.js"></script>
+    <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

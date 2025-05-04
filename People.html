@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css"/>
+  <title>Chainblock voters</title>
+  <style>
+    /* Custom styles for layout */
+    .card_outer_layer {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .cards-wrapper {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card-container {
+    perspective: 1000px;
+    width: 250px;
+    height: 350px;
+  }
+
+  .card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+  }
+
+  .card-container:hover .card {
+    transform: rotateY(180deg);
+  }
+
+  .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  .card-front {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+  }
+
+  .card-front img {
+    width: 80%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+
+  .card-front h2 {
+    margin: 0;
+    font-size: 20px;
+  }
+
+  .card-back {
+    background: #3498db;
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+  }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Chainblock Voters</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./Candidates.html">Members</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Body -->
+  
+  <div class="card_outer_layer">
+
+    <div class="cards-wrapper">
+      <div class="card-container">
+        <div class="card">
+          <div class="card-front">
+            <img src="https://via.placeholder.com/150" alt="Person 1">
+            <h2>Akshit Trivedi</h2>
+          </div>
+          <div class="card-back">
+            <p>Software Engineer with 5 years of experience in web development.</p>
+          </div>
+        </div>
+      </div>
+    
+      <div class="card-container">
+        <div class="card">
+          <div class="card-front">
+            <img src="https://via.placeholder.com/150" alt="Person 2">
+            <h2>Meet Jhaveri</h2>
+          </div>
+          <div class="card-back">
+            <p>Creative Designer passionate about modern UI/UX trends.</p>
+          </div>
+        </div>
+      </div>
+    
+      <div class="card-container">
+        <div class="card">
+          <div class="card-front">
+            <img src="https://via.placeholder.com/150" alt="Person 3">
+            <h2>Dharmil Dhameliya</h2>
+          </div>
+          <div class="card-back">
+            <p>Marketing Specialist helping brands grow through digital strategies.</p>
+          </div>
+        </div>
+      </div>
+    
+      <div class="card-container">
+        
+          <div class="card">
+            <div class="card-front">
+              <img src="https://via.placeholder.com/150" alt="Person 4">
+              <h2>Vrund Thakkar</h2>
+            </div>
+            <div class="card-back">
+              <p>Project Manager focused on delivering quality products on time.</p>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  
+
+  </div>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
